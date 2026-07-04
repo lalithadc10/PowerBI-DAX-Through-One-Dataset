@@ -40,13 +40,13 @@ SUMX(
 Find each city's contribution to total revenue.
 
 ## Measure
-Revenue % =
+% of Total = 
 DIVIDE(
     [Net Revenue],
     CALCULATE(
         [Net Revenue],
-        ALL(Customers[City])
-    )
+        ALL(customers[city])
+    ),0
 )
 ## Learning
 - ALL removes city filters.
@@ -55,17 +55,10 @@ DIVIDE(
 ## Business Problem
 Calculate the contribution of products within their own category while ignoring product-level filters.
 ## Measure
-% of Category =
-DIVIDE(
-    [Net Revenue],
-    CALCULATE(
-        [Net Revenue],
-        ALLEXCEPT(
-            Products,
-            Products[Category]
-        )
-    )
-)
+% of category = DIVIDE([Net revenue],[category_revenue],0)
+category_revenue = CALCULATE([Net revenue],
+ ALLEXCEPT(products,products[category]))
+
 ## Learning
 
 - ALLEXCEPT removes all filters except the specified one.
@@ -76,39 +69,28 @@ DIVIDE(
 ## Business Problem
 Rank products based on revenue to identify the best-performing products.
 ## Measure
-Products by Rank =
-RANKX(
-    ALL(Products[Product]),
-    [Net Revenue],
-    ,
-    DESC,
-    DENSE
-)
+Products by Rank = RANKX(ALL(products[product]),[Net revenue], ,DESC)
 ## Learning
 - RANKX assigns rankings based on a measure.
 - ALL removes product filters before ranking.
 - DENSE ranking avoids skipped ranking numbers.
 # Day 5 — FILTER
 ## Business Problem
-
 Find how many customers spend above the average customer spend.
-
 ## Measure
-Customers Above Average =
-VAR AvgCustomerSpend =
-AVERAGEX(
-    VALUES(Customers[Customer_ID]),
-    [Net Revenue]
-)
-
-RETURN
+Customers Above Average = 
 COUNTROWS(
     FILTER(
-        VALUES(Customers[Customer_ID]),
-        [Net Revenue] > AvgCustomerSpend
+        VALUES(customers[customer_id]),
+        [Net revenue] > [Avg Customer Spend (With ALL)]
     )
 )
-```
+Above Average Flag = 
+IF(
+    [Net revenue] > [Avg Customer Spend (With ALL)],
+    1,
+    0
+)
 
 ## Learning
 
@@ -124,14 +106,14 @@ COUNTROWS(
 Calculate the average revenue generated per customer.
 
 ## Measure
-
-```DAX
-Average Customer Spend =
-AVERAGEX(
-    VALUES(Customers[Customer_ID]),
-    [Net Revenue]
+Avg Customer Spend (With ALL) = 
+CALCULATE(
+    AVERAGEX(
+        VALUES(customers[customer_id]),
+        [Net Revenue]
+    ),
+    ALL(customers[customer_id])
 )
-```
 
 ## Learning
 
@@ -148,27 +130,15 @@ AVERAGEX(
 Compare current month revenue with the previous month.
 
 ## Measure
-
-```DAX
-Revenue LM =
-CALCULATE(
-    [Net Revenue],
-    DATEADD(
-        Calendar[Date],
-        -1,
-        MONTH
-    )
-)
-```
+Revenue LM = 
+CALCULATE([Net revenue],
+DATEADD(calender[date],-1,MONTH))
 
 ## Learning
 
 - DATEADD shifts the current filter context.
 - Enables Month-over-Month analysis.
 - Requires a proper Calendar table.
-
----
-
 # Day 8 — SAMEPERIODLASTYEAR
 
 ## Business Problem
@@ -176,16 +146,11 @@ CALCULATE(
 Compare current sales with the same period last year.
 
 ## Measure
-
-```DAX
-Revenue LY =
+Revenue LY = 
 CALCULATE(
-    [Net Revenue],
-    SAMEPERIODLASTYEAR(
-        Calendar[Date]
-    )
+    [Net revenue],
+    SAMEPERIODLASTYEAR(calender[date])
 )
-```
 
 ## Learning
 
@@ -202,24 +167,17 @@ CALCULATE(
 Calculate cumulative revenue from the beginning of the fiscal year.
 
 ## Measure
-
-```DAX
-Revenue YTD =
+Revenue YTD = 
 TOTALYTD(
-    [Net Revenue],
-    Calendar[Date],
-    ,
+    [Net revenue],
+    calender[date],
     "03/31"
 )
-```
 
 ## Learning
-
 - TOTALYTD creates running totals.
 - Fiscal year end can be customized.
 - Commonly used in financial reporting.
-
----
 
 # Day 10 — Calendar Filter
 
@@ -228,15 +186,16 @@ TOTALYTD(
 Calculate revenue generated only on weekdays.
 
 ## Measure
-
-```DAX
-Weekday Revenue =
+Weekday Revenue = 
 CALCULATE(
-    [Net Revenue],
-    Calendar[Is_Weekend] = 0
+    [Net revenue],
+    calender[is_weekend] = 0
 )
-```
-
+Weekend Revenue = 
+CALCULATE(
+    [Net revenue],
+    calender[is_weekend] = 1
+)
 ## Learning
 
 - Filters from the Calendar table propagate to the Sales table.
@@ -252,17 +211,14 @@ CALCULATE(
 Calculate each city's contribution only within the selected cities.
 
 ## Measure
-
-```DAX
-% of Selected Cities =
+% of Selected Cities = 
 DIVIDE(
     [Net Revenue],
     CALCULATE(
         [Net Revenue],
-        ALLSELECTED(Customers[City])
-    )
+        ALLSELECTED(customers[city])
+    ),0
 )
-```
 
 ## Learning
 
@@ -279,16 +235,12 @@ DIVIDE(
 Categorize customers based on spending.
 
 ## Measure
-
-```DAX
-Customer Segment =
-SWITCH(
+customer segment = SWITCH(
     TRUE(),
-    [Net Revenue] >= 500000, "High Value",
-    [Net Revenue] >= 250000, "Mid Value",
-    "Low Value"
+    [Net revenue]>= 6,"High",
+    [Net revenue]>= 4,"Mid",
+    "Low"
 )
-```
 
 ## Learning
 
@@ -305,17 +257,12 @@ SWITCH(
 Allow users to dynamically switch KPI values from a slicer.
 
 ## Measure
-
-```DAX
-Selected KPI =
+Selected KPI = 
 SWITCH(
-    SELECTEDVALUE(Metric[Metric]),
+    SELECTEDVALUE('Metric selector'[Metric]),
     "Revenue", [Net Revenue],
-    "Profit", [Total Profit],
-    "Margin", [Profit Margin %],
-    "AOV", [Average Order Value]
+    "Profit", [Total Profit]
 )
-```
 
 ## Learning
 
@@ -332,22 +279,20 @@ SWITCH(
 Display a rolling 3-month average revenue.
 
 ## Measure
-
-```DAX
-Rolling 3 Month Average =
+3 Month Rolling Avg = 
 DIVIDE(
     CALCULATE(
         [Net Revenue],
         DATESINPERIOD(
-            Calendar[Date],
-            MAX(Calendar[Date]),
+            'calender'[date],
+            MAX('calender'[date]),
             -3,
             MONTH
         )
     ),
     3
 )
-```
+
 
 ## Learning
 
@@ -375,30 +320,14 @@ SUMX(
 )
 ```
 
-```DAX
-Total Profit =
-[Total Revenue] -
-SUMX(
-    Sales,
-    Sales[Qty] * Sales[Unit Cost]
-)
-```
+Profit = [Net revenue]-[Total Cost]
 
-```DAX
-Profit Margin % =
+Profit Margin % = 
 DIVIDE(
-    [Total Profit],
-    [Total Revenue]
+    [Total profit],
+    [Net revenue],0
 )
-```
-
-```DAX
-Average Order Value =
-DIVIDE(
-    [Total Revenue],
-    DISTINCTCOUNT(Sales[Order_ID])
-)
-```
+avg_ordervalue = DIVIDE([Net revenue],DISTINCTCOUNT(sales[order_id]),0)*100000
 
 ## Learning
 
