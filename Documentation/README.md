@@ -10,8 +10,7 @@ Every topic was accompanied by a LinkedIn post and a short video walkthrough whe
 
 | Day | Topic | Business Problem | LinkedIn Post |
 |-----|------------------------------|------------------------------------------------------------|---------------|
-| Day 1 | Data Model & Relationships | Build a star schema and establish relationships between tables | 
-[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7473701509805965312-BViU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw) | 
+| Day 1 | Data Model & Relationships | Build a star schema and establish relationships between tables |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7473701509805965312-BViU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw) |
   
 | Day 2 | ALL | Calculate each city's contribution to total revenue |
 [🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7474061683120885760-_t5t?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw) |
@@ -24,9 +23,9 @@ Every topic was accompanied by a LinkedIn post and a short video walkthrough whe
 
 | Day 6 | AVERAGEX & Context Transition | Calculate average revenue per customer |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475497531523862528-i4aQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
-| Day 7 | DATEADD | Compare current month revenue with previous month |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475878238297182208-_Taq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
+| Day 7 | DATEADD | Compare current month revenue with previous month|[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475878238297182208-_Taq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
-| Day 8 | SAMEPERIODLASTYEAR | Perform Year-over-Year sales comparison | [🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7476233594990944256-ngjO?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
+| Day 8 | SAMEPERIODLASTYEAR | Perform Year-over-Year sales comparison |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7476233594990944256-ngjO?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
 | Day 9 | TOTALYTD | Calculate fiscal Year-to-Date revenue | [🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7476599078450057216-t2Zr?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw) |
 
@@ -44,7 +43,7 @@ Every topic was accompanied by a LinkedIn post and a short video walkthrough whe
 
 ---
 
-# 🧠 Key Skills Developed
+#  Key Skills Developed
 
 Throughout this journey, I strengthened my understanding of:
 
@@ -70,7 +69,7 @@ Throughout this journey, I strengthened my understanding of:
 
 ---
 
-# 🚀 Key Takeaway
+#  Key Takeaway
 
 This 15-day journey taught me that DAX is not about memorizing functions—it's about understanding business questions and knowing how to manipulate filter context to answer them.
 
