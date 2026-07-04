@@ -24,7 +24,7 @@ Every topic was accompanied by a LinkedIn post and a short video walkthrough whe
 
 | Day 6 | AVERAGEX & Context Transition | Calculate average revenue per customer |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475497531523862528-i4aQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
-| Day 7 | DATEADD | Compare current month revenue with previous month |[🎥 View LinkedIn Post] (https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475878238297182208-_Taq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
+| Day 7 | DATEADD | Compare current month revenue with previous month |[🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7475878238297182208-_Taq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
 | Day 8 | SAMEPERIODLASTYEAR | Perform Year-over-Year sales comparison | [🎥 View LinkedIn Post](https://www.linkedin.com/posts/jayalalitha-t_powerbi-dax-dataanalytics-activity-7476233594990944256-ngjO?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEoeiWkB0e6-xutgsI8rVOqUojWvjpV3Nzw)|
 
