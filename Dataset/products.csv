@@ -1,0 +1,14 @@
+﻿product_id,product,category,unit_price,unit_cost
+P01,Cotton T-Shirt,Apparel,500,330
+P02,Denim Jacket,Apparel,2800,1850
+P03,Formal Shirt,Apparel,1200,760
+P04,Hoodie,Apparel,1600,1040
+P05,Running Shoes,Footwear,3500,2300
+P06,Casual Sneakers,Footwear,2400,1560
+P07,Leather Loafers,Footwear,4200,2900
+P08,Leather Belt,Accessories,900,520
+P09,Backpack,Accessories,2200,1430
+P10,Sunglasses,Accessories,1800,1080
+P11,Wireless Earbuds,Electronics,4500,3150
+P12,Smart Watch,Electronics,8000,5600
+P13,Bluetooth Speaker,Electronics,3200,2080
